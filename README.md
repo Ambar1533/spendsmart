@@ -14,7 +14,8 @@
 - Visualize trends with interactive **bar graphs** and **pie charts**.
 - Analyze **ideal vs actual** spending.
 
-![Daily Tracker](https://github.com/user-attachments/assets/addb9baa-a1ec-4f40-89de-675f847648fb)
+![Daily Expense Entry](https://github.com/user-attachments/assets/addb9baa-a1ec-4f40-89de-675f847648fb)
+![Expense Graph](https://github.com/user-attachments/assets/4720f14a-2628-43ae-8f83-12336e1304e7)
 
 ---
 
@@ -22,17 +23,21 @@
 
 1. **📅 SIP Calculator**
    - Calculate future value of monthly SIPs based on tenure and CAGR.
+   - ![SIP Calculator](https://github.com/user-attachments/assets/f637e9d5-8264-4807-beac-3ff386a0371f)
 
 2. **🎓 Children's Future Planning**
    - Estimate future corpus needed for a child's education using inflation and ROI.
+   - ![Children Planning](https://github.com/user-attachments/assets/5f9ad810-dace-4e4d-80b6-a7ca0296f98f)
 
 3. **🏠 Affordability Calculator**
    - Check eligibility for home/vehicle loans based on income and investment assets.
+   - ![Loan Input](https://github.com/user-attachments/assets/5d644a47-a91c-4e1d-8d88-b4a36f88f749)
+   - ![Loan EMI Output](https://github.com/user-attachments/assets/e457ceb3-b76f-4bdd-91c2-f706839fc567)
 
 4. **💸 Tax Calculator**
    - Calculates taxable income and tax after Section 80C and other deductions.
-
-![Tax Calculator](https://github.com/user-attachments/assets/e8a5f183-101e-4eb6-b28d-718b1c755a13)
+   - ![Tax Form](https://github.com/user-attachments/assets/e8a5f183-101e-4eb6-b28d-718b1c755a13)
+   - ![Tax Output](https://github.com/user-attachments/assets/04be6aaf-189e-4adb-951b-60ea828d5cbf)
 
 ---
 
@@ -43,6 +48,8 @@
 - Suggestions for **pension plans** and **equity-based savings**.
 
 ![Stock Analysis](https://github.com/user-attachments/assets/e242481d-4709-4b95-9c58-4ec02e53ab3e)
+![Quarterly Report](https://github.com/user-attachments/assets/0dc3a879-5ace-4846-98df-a7b187b9119f)
+![Technical Analysis](https://github.com/user-attachments/assets/f849101f-30f8-45f1-ad99-749b64b7283d)
 
 ---
 
@@ -67,7 +74,7 @@
 
 ## 🚀 Deployment
 
-Live on **Render**: [App Link](https://spendsmart-9oph.onrender.com)
+Live on **Render**: [SmartSpend App](https://spendsmart-9oph.onrender.com)
 
 > To deploy manually:
 ```bash
@@ -80,54 +87,6 @@ python app.py
 ---
 
 ## 📁 Folder Structure
-
-```
-📦 spendsmart
-│
-├── static/                # CSS & images
-├── templates/             # HTML templates
-├── utils/                 # Helper functions
-├── app.py                 # Flask entry point
-├── forms.py               # Flask-WTF forms
-├── render.yaml            # Render deployment config
-├── requirements.txt       # Python packages
-├── Procfile               # Deployment start command
-└── README.md
-```
-
----
-
-## 🤝 Contributors
-
-- [Ambar Mistry](https://github.com/Ambar1533)
-
----
-
-## 📃 License
-
-This project is licensed under the MIT License.
-
----
-
-> SmartSpend: Helping you spend smarter, save better, and invest wiser.
----
-
-## 🚀 Live Demo
-
-You can access the deployed app here: [SmartSpend on Render](https://spendsmart-9oph.onrender.com)
-
----
-
-## 📦 Tech Stack
-
-- **Frontend**: HTML5, CSS3, Jinja2 Templates
-- **Backend**: Python 3.11, Flask, Flask-WTF
-- **Database**: JSON-based storage (extensible to SQL/NoSQL)
-- **Tools**: Chart.js, Gunicorn, Render for Deployment
-
----
-
-## 📂 Folder Structure
 
 ```
 SMARTSPEND-MAIN/
@@ -148,37 +107,31 @@ SMARTSPEND-MAIN/
 ## 🧪 Testing Instructions
 
 1. Clone the repository:
-   ```
+   ```bash
    git clone https://github.com/Ambar1533/spendsmart
    cd spendsmart
    ```
 
 2. Create virtual environment and activate:
-   ```
+   ```bash
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
 3. Install dependencies:
-   ```
+   ```bash
    pip install -r requirements.txt
    ```
 
 4. Run the Flask app:
-   ```
+   ```bash
    python app.py
    ```
 
 5. Access the app at:
-   ```
+   ```bash
    http://127.0.0.1:8000/
    ```
-
----
-
-## 🛡️ License
-
-This project is licensed under the [MIT License](LICENSE).
 
 ---
 
@@ -188,3 +141,13 @@ This project is licensed under the [MIT License](LICENSE).
 - [Chart.js](https://www.chartjs.org/)
 - [Render](https://render.com/)
 - [email-validator](https://pypi.org/project/email-validator/)
+
+---
+
+## 🛡️ License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+> SmartSpend: Helping you spend smarter, save better, and invest wiser.
