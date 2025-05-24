@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}Home Loan Calculator Output{% endblock %}
+{% block content %}
+
+<style>
+    #form input {
+        right: 0%;
+    }
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+    h1 {
+        margin-top: 30px;
+        margin-bottom: 20px;
+        font-size: 24px;
+        text-align: center;
+    }
+</style>
+
+<section id="header">
+    <div id="events">
+        <h1>Home Loan Calculator Output</h1>
+        <div id="form">
+            <table>
+                <tr>
+                    <th>Cost of Property</th>
+                    <td>₹{{ data.cost_of_property }}</td>
+                </tr>
+                <tr>
+                    <th>Down Payment</th>
+                    <td>₹{{ data.down_payment }}</td>
+                </tr>
+                <tr>
+                    <th>Loan Amount</th>
+                    <td>₹{{ data.loan_amount }}</td>
+                </tr>
+                <tr>
+                    <th>Annual Interest Rate</th>
+                    <td>{{ data.annual_interest_rate }}%</td>
+                </tr>
+                <tr>
+                    <th>Tenure</th>
+                    <td>{{ data.tenure_years }} years</td>
+                </tr>
+                <tr>
+                    <th>Cost of Registration</th>
+                    <td>₹{{ data.cost_of_registration }}</td>
+                </tr>
+                <tr>
+                    <th>Home Loan EMI</th>
+                    <td>₹{{ data.EMI }}</td>
+                </tr>
+                <tr>
+                    <th>Total Liquid Assets</th>
+                    <td>₹{{ data.total_liquid_assets }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block title %}Daily Expense Tracker{% endblock %}
+{% block content %}
+
+<style>
+    #form input {
+        right: 0%;
+    }
+    #events {
+        margin-left: 250px;
+        padding: 20px;
+    }
+    #form {
+        max-width: 600px;
+        background: #fff;
+        padding: 20px;
+        margin-top: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+        font-weight: bold;
+    }
+    select, input[type="date"], input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    button {
+        padding: 12px 20px;
+        font-weight: bold;
+        background-color: #2a2c2a;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        width: 100%;
+    }
+    button:hover {
+        background-color: #444;
+    }
+</style>
+
+<section id="header">
+    <div id="side-menu">
+        <div id="logo-menu">
+            <h1>SmartSpend</h1>
+            <h2>Money Management</h2>
+        </div>
+        <ul><li><a href="/" title="Home"><pre><img src="../static/images/home.png" alt=""> Home</pre></a></li></ul>
+        <ul><li><a href="#" title='Expense Tracker'><pre><img src="../static/images/expenses.png" alt=""> Expenses Tracker</pre></a></li></ul>
+        <ul><li><a href="#" title="Financial Calculator"><pre><img src="../static/images/business.png" alt=""> Financial Calculators</pre></a></li></ul>
+        <ul><li><a href="#" title="Investment options"><pre><img src="../static/images/piggy.png" alt=""> Saving Schemes</pre></a></li></ul>
+        <ul><li id="active"><a href="#" title="Profile"><pre><img src="../static/images/account.png" alt=""> Profile</pre></a></li></ul>
+    </div>
+
+    <div id="events">
+        <h1>Daily Expense Tracker</h1>
+        <div id="form">
+            <form method="post">
+                <label for="date">Date:</label>
+                <input name="date" type="date" required>
+
+                <label for="purpose">Purpose:</label>
+                <select name="purpose" required>
+                    <option value="">Select Purpose</option>
+                    <option value="accomodation">Accommodation</option>
+                    <option value="transportation">Transportation</option>
+                    <option value="utilities">Utilities</option>
+                    <option value="groceries">Groceries</option>
+                    <option value="medical">Medical</option>
+                    <option value="outside food">Outside Food</option>
+                    <option value="shopping">Shopping</option>
+                    <option value="insurance">Insurance</option>
+                    <option value="child education">Child Education</option>
+                    <option value="miscellaneous">Miscellaneous</option>
+                </select>
+
+                <label for="amount">Amount (₹):</label>
+                <input name="amount" type="number" min="0" required>
+
+                <div class="footer">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<script>
+    const menu_ = document.getElementById('menu-icon');
+    const nav_ = document.getElementById('menu-bar');
+    function open_(){
+        menu_.style.display = 'none';
+        nav_.style.display = 'inline';
+    }
+    function close_(){
+        menu_.style.display = 'block';
+        nav_.style.display = 'none';
+    }
+</script>
+
+{% endblock %}

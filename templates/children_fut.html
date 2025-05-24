@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% block title %}Children Future Planning{% endblock %}
+{% block content %}
+<style>
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        font-size: 24px;
+        font-weight: 700;
+        color: #333;
+        text-align: center;
+    }
+    form label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+        color: #333;
+    }
+    form input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+    .error-message {
+        color: #ff4d73;
+        font-size: 14px;
+        margin-top: -10px;
+        margin-bottom: 15px;
+        display: block;
+    }
+    button {
+        background-color: #2a2c2a;
+        color: white;
+        padding: 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        width: 100%;
+        text-transform: uppercase;
+    }
+    button:hover {
+        background-color: #5b615b;
+    }
+</style>
+
+<div class="container">
+    <h1>Children Future Planning</h1>
+    <form method="post">
+        {{ form.hidden_tag() }}
+
+        <label for="present_age">Present Child Age (years):</label>
+        {{ form.present_age(class="form-control", id="present_age") }}
+        {% for error in form.present_age.errors %}
+            <span class="error-message">{{ error }}</span>
+        {% endfor %}
+
+        <label for="current_cost">Current Cost of Education (₹):</label>
+        {{ form.current_cost(class="form-control", id="current_cost") }}
+        {% for error in form.current_cost.errors %}
+            <span class="error-message">{{ error }}</span>
+        {% endfor %}
+
+        <label for="inflation_rate">Expected Inflation Rate (%):</label>
+        {{ form.inflation_rate(class="form-control", id="inflation_rate", step="0.01") }}
+        {% for error in form.inflation_rate.errors %}
+            <span class="error-message">{{ error }}</span>
+        {% endfor %}
+
+        <label for="goal_age">Age of the Child at Goal (years):</label>
+        {{ form.goal_age(class="form-control", id="goal_age") }}
+        {% for error in form.goal_age.errors %}
+            <span class="error-message">{{ error }}</span>
+        {% endfor %}
+
+        <label for="roi">Expected Return on Investment (%):</label>
+        {{ form.roi(class="form-control", id="roi", step="0.01") }}
+        {% for error in form.roi.errors %}
+            <span class="error-message">{{ error }}</span>
+        {% endfor %}
+
+        <label for="initial_lump_sum">Initial Lump Sum Investment (₹) (optional):</label>
+        {{ form.initial_lump_sum(class="form-control", id="initial_lump_sum") }}
+        {% for error in form.initial_lump_sum.errors %}
+            <span class="error-message">{{ error }}</span>
+        {% endfor %}
+
+        {{ form.submit(class="button") }}
+    </form>
+</div>
+{% endblock %}

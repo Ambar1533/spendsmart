@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}Expense Tracker{% endblock %}
+{% block content %}
+
+<style>
+    #why h1 {
+        text-align: center;
+        margin: 40px 0 20px;
+        font-size: 28px;
+    }
+
+    .services {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        padding: 20px;
+    }
+
+    .services .row {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 400px;
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+
+    .services .row:hover {
+        transform: translateY(-5px);
+    }
+
+    .services img {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 15px;
+    }
+
+    .services h1 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .services p {
+        font-size: 14px;
+        color: #555;
+        line-height: 1.6;
+    }
+
+    .services a {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+</style>
+
+<section id="why">
+    <h1>Expense Tracker</h1>
+    <div class="services">
+        <div class="row">
+            <a href="monthly">
+                <img src="{{ url_for('static', filename='images/accounting.png') }}" alt="Monthly Tracker Icon">
+                <h1>Monthly Expense Tracker</h1>
+                <p>This feature provides you with tools to store and analyze your monthly expenses and spending habits efficiently based on your daily entries.</p>
+            </a>
+        </div>
+        <div class="row">
+            <a href="daily">
+                <img src="{{ url_for('static', filename='images/time-table.png') }}" alt="Daily Tracker Icon">
+                <h1>Daily Expense Tracker</h1>
+                <p>This feature allows you to store and manage your daily expenses quickly and efficiently.</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

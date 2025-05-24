@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block title %}Financial Calculators{% endblock %}
+{% block content %}
+
+<style>
+    .services {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        padding: 20px;
+    }
+
+    .services .row {
+        width: 280px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        text-align: center;
+        padding: 20px;
+        transition: transform 0.3s ease;
+    }
+
+    .services .row:hover {
+        transform: translateY(-5px);
+    }
+
+    .services img {
+        max-width: 100px;
+        margin: 10px auto;
+    }
+
+    .services h1 {
+        font-size: 20px;
+        margin: 10px 0;
+        color: #333;
+    }
+
+    .services p {
+        font-size: 14px;
+        color: #555;
+    }
+
+    #why h1 {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 28px;
+        color: #2a2c2a;
+    }
+</style>
+
+<div id="why">
+    <h1>Financial Calculators</h1>
+    <div class="services">
+        <div class="row">
+            <a href="{{ url_for('tax_calculator', id=session.get('user_email', 'guest')) }}">
+                <img src="../static/images/tax.png" alt="Tax Calculator">
+                <h1>Tax Calculator</h1>
+                <p>Calculate your annual tax based on your income and deductions.</p>
+            </a>
+        </div>
+
+        <div class="row">
+            <a href="{{ url_for('affordability_calculator', id=session.get('user_email', 'guest')) }}">
+                <img src="../static/images/3.png" alt="Affordability Calculator">
+                <h1>Affordability Calculator</h1>
+                <p>Analyze if you can afford major purchases like a home based on assets and expenses.</p>
+            </a>
+        </div>
+
+        <div class="row">
+            <a href="{{ url_for('children_future_planning', id=session.get('user_email', 'guest')) }}">
+                <img src="../static/images/4.png" alt="Children Planning">
+                <h1>Children Planning</h1>
+                <p>Plan for your child's future education and expenses effectively.</p>
+            </a>
+        </div>
+
+        <div class="row">
+            <a href="{{ url_for('sip_calculator', id=session.get('user_email', 'guest')) }}">
+                <img src="../static/images/5.png" alt="SIP Calculator">
+                <h1>SIP Calculator</h1>
+                <p>Estimate returns from your Systematic Investment Plans over time.</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    h1 {
+        top: 15%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, 0);
+        text-align: center;
+    }
+
+    h1::after {
+        content: '';
+        background: #ff4d73;
+        display: block;
+        height: 3px;
+        width: 170px;
+        margin: 5px auto 50px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .error-message {
+        color: #ff4d73;
+        font-size: 14px;
+        margin-top: 5px;
+        display: block;
+    }
+</style>
+
+<div id='Register'>
+    <img id="logo" src='../static/images/text-logo.png' alt="Logo">
+    <h1>Register</h1>
+
+    <!-- Legacy error compatibility -->
+    {% if data == 0 %}
+        <h4 style='color:red'>Username not available, please try again</h4>
+    {% endif %}
+    {% if data == 1 %}
+        <h4 style='color:red'>Registration failed. Try again.</h4>
+    {% endif %}
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                    <div class="flash-message flash-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST" id="form">
+        {{ form.hidden_tag() }}
+
+        <div class="form-group">
+            {{ form.email.label }}
+            {{ form.email(class="form-control", placeholder="Enter your Email") }}
+            {% for error in form.email.errors %}
+                <span class="error-message">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            {{ form.password.label }}
+            {{ form.password(class="form-control", placeholder="Create Password") }}
+            {% for error in form.password.errors %}
+                <span class="error-message">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            {{ form.confirm_password.label }}
+            {{ form.confirm_password(class="form-control", placeholder="Confirm Password") }}
+            {% for error in form.confirm_password.errors %}
+                <span class="error-message">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            {{ form.submit(class="button", id="button") }}
+        </div>
+    </form>
+
+    <p>Do you have an account?
+        <a href='/'><button class="btn-link">Sign in</button></a>
+    </p>
+</div>
+
+<script>
+    function functions() {
+        alert("Need to login first");
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% block title %}Expense Calculator{% endblock %}
+{% block content %}
+
+<style>
+    #form input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    #form label {
+        font-weight: bold;
+    }
+
+    .footer button {
+        background-color: #2a2c2a;
+        color: white;
+        padding: 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        width: 100%;
+        text-transform: uppercase;
+    }
+
+    .footer button:hover {
+        background-color: #5b615b;
+    }
+
+    h1, h2, h3 {
+        color: #333;
+    }
+
+    #events {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<div id="events">
+    <h1>Your Information</h1>
+    <div id="form">
+        <form method="post" action="">
+            <label><h2>Annual Income</h2></label>
+            <input name="income" type="number" required value="0" min="0">
+
+            <label><h3>Expenses</h3></label>
+
+            <label>Accommodation</label>
+            <input name="accommodation" type="number" required value="0" min="0">
+
+            <label>Transportation</label>
+            <input name="transportation" type="number" required value="0" min="0">
+
+            <label>Utilities</label>
+            <input name="utilities" type="number" required value="0" min="0">
+
+            <label>Groceries</label>
+            <input name="groceries" type="number" required value="0" min="0">
+
+            <label>Medical</label>
+            <input name="medical" type="number" required value="0" min="0">
+
+            <label>Outside Food</label>
+            <input name="outside_food" type="number" required value="0" min="0">
+
+            <label>Shopping</label>
+            <input name="shopping" type="number" required value="0" min="0">
+
+            <label>Insurance</label>
+            <input name="insurance" type="number" required value="0" min="0">
+
+            <label>Child Education</label>
+            <input name="child_education" type="number" required value="0" min="0">
+
+            <label>Maid</label>
+            <input name="maid" type="number" required value="0" min="0">
+
+            <label>Miscellaneous</label>
+            <input name="miscellaneous" type="number" required value="0" min="0">
+
+            <label>Home Loan EMI</label>
+            <input name="home_loan" type="number" required value="0" min="0">
+
+            <label>Car Loan EMI</label>
+            <input name="car_loan" type="number" required value="0" min="0">
+
+            <label>Personal Loan EMI</label>
+            <input name="personal_loan" type="number" required value="0" min="0">
+
+            <label>Other Loans</label>
+            <input name="other_loans" type="number" required value="0" min="0">
+
+            <div class="footer">
+                <p><button type="submit">Submit</button></p>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}Children Future Planning - Results{% endblock %}
+{% block content %}
+<style>
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        font-size: 24px;
+        font-weight: 700;
+        color: #333;
+        text-align: center;
+    }
+    .result {
+        margin: 20px 0;
+        font-size: 16px;
+        color: #333;
+    }
+    .result span {
+        font-weight: 600;
+    }
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        width: 100%;
+        text-transform: uppercase;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+</style>
+
+<div class="container">
+    <h1>Children Future Planning - Results</h1>
+    <div class="result">
+        <p><span>Present Child Age (years):</span> {{ data.present_age }}</p>
+        <p><span>Current Cost of Education (₹):</span> {{ data.current_cost }}</p>
+        <p><span>Expected Inflation Rate (%):</span> {{ data.inflation_rate }}</p>
+        <p><span>Age of the Child at Goal (years):</span> {{ data.goal_age }}</p>
+        <p><span>Expected Return on Investment (%):</span> {{ data.roi }}</p>
+        <p><span>Initial Lump Sum Investment (₹):</span> {{ data.initial_lump_sum }}</p>
+        <p><span>Corpus Required (₹):</span> {{ data.corpus_required }}</p>
+        <p><span>Monthly Investment Required (₹):</span> {{ data.monthly_investment }}</p>
+        <p><span>Annually Investment Required (₹):</span> {{ data.annual_investment }}</p>
+        <p><span>Lump Sum Investment Required (₹):</span> {{ data.lump_sum_investment }}</p>
+    </div>
+    <form action="/{{ get_current_user() }}/children-future-planning" method="get">
+        <button type="submit">Back</button>
+    </form>
+</div>
+{% endblock %}

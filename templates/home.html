@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block title %}SmartSpend - Dashboard{% endblock %}
+{% block content %}
+
+<style>
+    #form input {
+        right: 0%;
+    }
+    canvas {
+        max-width: 100%;
+        margin: auto;
+    }
+    .services .row {
+        margin-bottom: 40px;
+    }
+    button {
+        padding: 10px 20px;
+        background-color: #2a2c2a;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #5b615b;
+    }
+</style>
+
+<section id="header">
+    <div id="side-menu">
+        <div id="logo-menu"><h1>SmartSpend</h1><h2>Money Management</h2></div>
+        <ul id="active"><li><a href="/{{ data[-1] }}/home" title="Home"><pre><img src="../static/images/home.png" alt=""> Home</pre></a></li></ul>
+        <ul><li><a href="/{{ data[-1] }}/expense-tracker" title="Expense Tracker"><pre><img src="../static/images/expenses.png" alt=""> Expenses Tracker</pre></a></li></ul>
+        <ul><li><a href="/{{ data[-1] }}/financial-calculators" title="Financial Calculators"><pre><img src="../static/images/business.png" alt=""> Financial Calculators</pre></a></li></ul>
+        <ul><li><a href="#" title="Investment Options"><pre><img src="../static/images/piggy.png" alt=""> Saving Schemes</pre></a></li></ul>
+        <ul><li><a href="#" title="Profile"><pre><img src="../static/images/account.png" alt=""> Profile</pre></a></li></ul>
+    </div>
+</section>
+
+<div id="why">
+    <h1>Hello {{ Name }}, Welcome Back!</h1>
+    <div class="services">
+
+        <div class="row" style="width:500px">
+            <h1>Ideal Way of Spending Money</h1>
+            <canvas id="myChart"></canvas>
+        </div>
+
+        <div class="row">
+            <h1>Recent Transactions</h1>
+            <button id="add">Add</button>
+            <h3><pre>Purpose        Amount</pre></h3>
+            <a href="/{{ data[-1] }}/daily"><button>View More</button></a>
+        </div>
+
+        <div class="row">
+            <h1>Financial Calculators</h1>
+            <pre>Tax Calculator</pre>
+            <pre>Affordability Calculator</pre>
+            <a href="/{{ data[-1] }}/financial-calculators"><button>Calculate</button></a>
+        </div>
+
+        <div class="row">
+            <h1>Saving Schemes</h1>
+            <h3>
+                <pre>Pension Schemes</pre>
+                <pre>Equity Investment</pre>
+            </h3>
+            <a href="#"><button>View More</button></a>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    const xValues = ["Necessities", "Personal expenses", "Savings"];
+    const yValues = [50, 25, 25];
+    const barColors = ["#b91d47", "#00aba9", "#2b5797"];
+
+    new Chart("myChart", {
+        type: "doughnut",
+        data: {
+            labels: xValues,
+            datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+            }]
+        },
+        options: {
+            title: {
+                display: false
+            }
+        }
+    });
+</script>
+
+{% endblock %}

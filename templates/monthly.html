@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% block title %}Monthly Expenses{% endblock %}
+{% block content %}
+
+<style>
+    table {
+        font-family: Arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 40px;
+    }
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 10px;
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    h1 {
+        text-align: center;
+        margin: 40px 0 20px;
+    }
+    canvas {
+        max-width: 700px;
+        height: 400px;
+        margin: 0 auto 60px;
+        display: block;
+    }
+</style>
+
+<section id="header">
+    <div id="side-menu">
+        <div id="logo-menu"><h1>SmartSpend</h1><h2>Money Management</h2></div>
+        <ul><li><a href="/" title="Home"><pre><img src="../static/images/home.png" alt=""> Home</pre></a></li></ul>
+        <ul id="active"><li><a href="expense-tracker" title="Expense Tracker"><pre><img src="../static/images/expenses.png" alt=""> Expenses Tracker</pre></a></li></ul>
+        <ul><li><a href="financial-calculators" title="Financial Calculator"><pre><img src="../static/images/business.png" alt=""> Financial Calculators</pre></a></li></ul>                
+        <ul><li><a href="#" title="Investment Options"><pre><img src="../static/images/piggy.png" alt=""> Saving Schemes</pre></a></li></ul>
+        <ul><li><a href="#" title="Wishlist"><pre><img src="../static/images/wishlist.png" alt=""> Wishlist</pre></a></li></ul>
+        <ul><li><a href="/profile" title="Profile"><pre><img src="../static/images/account.png" alt=""> Profile</pre></a></li></ul>
+    </div>
+</section>
+
+<div id="why">
+    <h1>Last 30 Days Expenses</h1>
+    <div class="services">
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Purpose</th>
+                <th>Amount (₹)</th>
+            </tr>
+            {% for i in data[0] %}
+            <tr>
+                <td>{{ i[0] }}</td>
+                <td>{{ i[1] }}</td>
+                <td>{{ i[2] }}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <th>Total</th>
+                <td></td>
+                <td><strong>{{ data[1] }}</strong></td>
+            </tr>
+        </table>
+
+        <canvas id="myChart"></canvas>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+<script>
+    const ctx = document.getElementById('myChart').getContext('2d');
+
+    const labels = [
+        {% for i in data[0] %}
+            "{{ i[1] }}",
+        {% endfor %}
+    ];
+
+    const dataValues = [
+        {% for value in data[2] %}
+            {{ value }},
+        {% endfor %}
+    ];
+
+    const barColors = [
+        "#b91d47", "#00aba9", "#2b5797", "#e8c3b9", "#1e7145",
+        "#ffa500", "#8e44ad", "#ff6384", "#36a2eb", "#ffcd56"
+    ];
+
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: labels,
+            datasets: [{
+                backgroundColor: barColors,
+                data: dataValues
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'Expense Distribution',
+                fontSize: 18
+            },
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+</script>
+
+{% endblock %}

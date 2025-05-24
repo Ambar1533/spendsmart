@@ -1,0 +1,15 @@
+<!-- templates/includes/navbar.html -->
+<nav class="navbar">
+    <div class="container">
+        <a href="/" class="logo">SmartSpend</a>
+        {% if session['user_email'] %}
+            <a href="/{{ session['user_email'] }}/home">Home</a>
+            <a href="/{{ session['user_email'] }}/expense-tracker">Expenses</a>
+            <a href="/{{ session['user_email'] }}/financial-calculators">Calculators</a>
+            <a href="/logout">Logout</a>
+        {% else %}
+            <a href="/">Login</a>
+            <a href="/register">Register</a>
+        {% endif %}
+    </div>
+</nav>
